@@ -1,8 +1,7 @@
-### reacts-ggsddu
+### react-book
+搬运自[reacts-ggsddu](https://github.com/Hazyzh/reacts-ggsddu)
 
 记录或者分享一些关于 `react` 学习路上的心得和体会
-
-
 ---
 
 - [动手实现redux](https://github.com/Hazyzh/reacts-ggsddu/blob/master/docs/my-redux.MD)
