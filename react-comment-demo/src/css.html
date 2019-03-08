@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+ 
+</style>
+</head>
+<body>
+ <script>
+   
+
+function Bloomer() {
+  this.petalCount = Math.ceil(Math.random() * 12) + 1;
+}
+
+// 1秒后调用declare函数
+Bloomer.prototype.bloom = function() {
+  window.setTimeout(this.declare.bind(this), 1000);
+};
+
+Bloomer.prototype.declare = function() {
+  console.log('我有 ' + this.petalCount + ' 朵花瓣!');
+};
+
+
+
+
+
+
+
+
+
+ </script>
+
+</body>
+</html>

@@ -122,3 +122,6 @@ function createStore(state,stateChanger){
     subscribe
   }
 }
+
+
+function  create
