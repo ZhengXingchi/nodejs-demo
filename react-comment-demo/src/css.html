@@ -4,31 +4,45 @@
   <meta charset="UTF-8">
   <title>Document</title>
   <style>
+#container2 {
+   float: left;
+    width: 100%;
+    background: orange;
+    position: relative;
+    overflow: hidden;
+ }
  
+  #container1 {
+    float: left;
+   width: 100%;
+    background: green;
+    position: relative;
+   right: 30%;/* 距离是第二列的宽度，加上2%的padding */
+  }
+ 
+  #col1 {
+    width: 66%;
+   float: left;
+   position: relative;
+   left: 32%;/* container1容器right:30%;加上内边距2%，故为32%；  */
+ }
+ 
+ #col2 {
+   width: 26%;
+   float: left;
+    position: relative;
+   left: 36%;/* 加上三个内边距，所以是 36%；*/
+  }
 </style>
 </head>
 <body>
+  <div id="container2">
+    <div id="container1">
+     <div id="col1">Column 1</div>
+     <div id="col2">Column 2；Column 2；Column 2；Column 2；Column 2</div>
+    </div>
+ </div>
  <script>
-   
-
-function Bloomer() {
-  this.petalCount = Math.ceil(Math.random() * 12) + 1;
-}
-
-// 1秒后调用declare函数
-Bloomer.prototype.bloom = function() {
-  window.setTimeout(this.declare.bind(this), 1000);
-};
-
-Bloomer.prototype.declare = function() {
-  console.log('我有 ' + this.petalCount + ' 朵花瓣!');
-};
-
-
-
-
-
-
 
 
 
