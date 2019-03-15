@@ -92,6 +92,40 @@ function inOrder(node){
   }
  
 }
+
+function preOrder(){
+  if(node!=null){
+    console.log(node.show())
+    preOrder(node.left)
+    preOrder(node.right)
+  }
+}
+
+
+function postOrder(){
+  if(node!=null){
+    post(node.left)
+    post(node.right)
+    console.log(node.show())
+  }
+}
+
+function find(target,bst){
+  if(bst==null){
+    console.log(-1)
+    return -1
+  }
+ 
+  if(bst.data>target){
+    return find(target,bst.left)
+  }else if(bst.data<target){
+    return find(target,bst.right)
+  }else{
+    return true
+  }
+}
+
+
 var Bst=new BST()
 Bst.insertBy(1)
  
@@ -106,6 +140,39 @@ Bst.insertBy(11)
 Bst.insertBy(12)
 inOrder(Bst.root)
 console.log(Bst)
+let r=find(18,Bst.root)
+console.log(r)
+
+
+ 
+function  checkImgs(){
+  const imgs=Array.from(document.querySelectorAll(".my-photo"))
+  imgs.forEach((item)=>{
+    io.observe(item)
+  })
+}
+
+function loadImg(el){
+  if(!el.src){
+    const source=el.dataset.src;
+    el.src=source;
+  }
+}
+
+const io=new IntersectionObserve(ioes=>{
+  ioes.forEach(ioe=>{
+    const el=ioe.target;
+    const intersectionRadio=ioe.intersectionRadio;
+    if(intersectionRadio>0&&intersectionRadio<=1){
+      loadImg(el)
+    }
+    el.onload=el.onError=()=>io.unobserve(el)
+  })
+})
+ 
+
+
+
  </script>
 
 </body>
