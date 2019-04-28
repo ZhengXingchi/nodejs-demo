@@ -27,7 +27,16 @@ class  一营 extends React.Component{
       solders:[...this.state.solders,'新兵蛋子'+Math.random()]
     })
   }
+
+  componentWillMount(){
+    console.log('组件马上就要加载了')
+  }
+
+  componentDidMount(){
+     console.log('组件加载完毕')
+  }
   render(){ 
+    console.log('组件正在加载')
     return(
       <div>
         <h2>一营，营长{this.props.老大}</h2>
