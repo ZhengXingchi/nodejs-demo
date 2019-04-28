@@ -7,7 +7,7 @@
 
 # React介绍
 
-![react生命周期函数.png]("./img/react生命周期函数.png" "生命周期")
+![react生命周期函数.png](./img/react生命周期函数.png "生命周期")
 
 
 
