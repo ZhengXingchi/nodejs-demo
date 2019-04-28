@@ -21,8 +21,9 @@
 配置数据库地址以及logs日志地址以及配置服务名"MongoDB"
 `mongod --dbpath "D:\mongodb\Server\data"  --logpath "D:\mongodb\Server\logs\logs.txt"  --install -serviceName "MongoDB"  --journal`
 
-mongod --dbpath "D:\mongodb\Server\data" --storageEngine=mmapv1
-按照它的指示：“The default storage engine 'wiredTiger' is not available with this build of mongod. Please specify a different storage engine explicitly, e.g. --storageEngine=mmapv1”，换一个storage engine。
+`mongod --dbpath "D:\mongodb\Server\data" --storageEngine=mmapv1  --journal`
+>按照它的指示：“The default storage engine 'wiredTiger' is not available with this build of mongod. Please specify a different storage engine explicitly, e.g. --storageEngine=mmapv1”，换一个storage engine。
+必须指定--dbpath "D:\mongodb\Server\data"数据库地址
  
 
 [与MongoDB的第一次亲密接触](https://segmentfault.com/a/1190000002744306)
