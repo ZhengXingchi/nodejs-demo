@@ -13,7 +13,7 @@
 [componentWillReceiveProps详解（this.props）状态改变检测机制](https://www.cnblogs.com/gdsblog/p/7348375.html)
 
 具体测试代码
-```javascript
+```
 import React from 'react'
 class App extends React.Component{
   constructor(props){
@@ -112,6 +112,42 @@ function 骑兵连(props){
 
 export default App
 ```
+
+
+
+# redux
+```js
+import {createStore} from 'redux'
+
+function counter(){
+  switch(action.type){
+    case '加机关枪':
+      return state+1
+    case '减机关枪':
+      return state-1
+    default:
+      retuen 10
+  }
+}
+
+const store=createStore(counter)
+const init=store.getState()
+console.log(init)
+
+function listener(){
+  const current=store.getState()
+  console.log(`现在有机枪${current}把`)
+}
+store.subscribe(listener)
+store.dispatch({type:"加机关枪"})
+
+
+```
+
+
+
+
+
 
 
 # mongodb的安装

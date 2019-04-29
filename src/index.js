@@ -4,7 +4,18 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import {createStore} from 'redux'
+import {counter,addGUN,removeGUN} from "./index.redux"
+
+
+const store=createStore(counter)
+ 
+function render(){
+	ReactDOM.render(<App store={store} addGUN={addGUN} removeGUN={removeGUN}/>, document.getElementById('root'));
+}
+render()
+store.subscribe(render)
+ 
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
