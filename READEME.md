@@ -145,8 +145,46 @@ store.dispatch({type:"加机关枪"})
 ```
 
 
+# react-redux
+1. `npm install react-redux  --save`
+2. 忘记subscribe,只需要记住reducer action dispatch
+3. React-redux提供Provider和connect两个接口来链接
+4. 多个reducer可以使用combineReducers进行合并
+
+# 使用装饰器优化代码
+1. npm install babel-plugin-transform-decorators-legacy --save-dev
+2. Error: The ‘decorators’ plugin requires a ‘decoratorsBeforeExport’ option, whose value must be a boolean. If you are migrating from Babylon/Babel 6 or want to use the old decorators proposal, you should use the ‘decorators-legacy’ plugin instead of ‘decorators’.
+
+```
+# 1. cnpm install babel-plugin-transform-decorators-legacy  --save-dev
+# 2. cnpm install  @babel/plugin-proposal-decorators --save-dev
+# 3.1 然后npm run eject  弹出个性化配置
+# 3.2 修改babel部分，添加代码
+"plugins": [
+      ["@babel/plugin-proposal-decorators", { "legacy": true }],
+      ["@babel/plugin-proposal-class-properties", { "loose" : true }]
+    ]
+ 
+# 4. 如果用的是vscode有提示报错 “experimentalDecorators”
+解决办法：
+点击Visual Studio Code左下角的配置按钮(或者文件>首选项>配置)，打开用户设置窗口，在搜索框内输入“experimentalDecorators”
+"javascript.implicitProjectConfig.experimentalDecorators": false  
+// 把false改成true 重启编辑器就可以了
+```
+
+```
+@connect(
+state=>({num:state}),//你要state的什么属性放到props中
+{addGUN,removeGUN,addGUNAsync}、、你要什么方法放到props中，自动dispatch
+)
+```
 
 
+# react-router4
+`npm install react-router-dom --save`
+Switch  只渲染命中的第一个Route
+this.props.history.push('/')//js进行跳转
+<Redirect to="/erying"></Redirect>
 
 
 
