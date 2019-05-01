@@ -21,23 +21,24 @@ class Dashboard extends React.Component{
 	}
 	render(){
 		const redirectToLogin=<Redirect to='/login'></Redirect>
+		const match=this.props.match
 		const app=(
 			<div>
 			   {this.props.isAuth?<button onClick={this.props.logout}>注销</button>:null}
 				<ul>
 				 	<li>
-				 		<Link to='/dashboard/' >一营</Link>
+				 		<Link to={`${match.url}/`} >一营</Link>
 				 	</li>
 				 	<li>
-				 		<Link to='/dashboard/erying' >二营</Link>
+				 		<Link to={`${match.url}/erying`} >二营</Link>
 				 	</li>
 				 	<li>
-				 		<Link to='/dashboard/qibinglian' >骑兵连</Link>
+				 		<Link to={`${match.url}/qibinglian`} >骑兵连</Link>
 				 	</li>
 				 </ul>
-				 <Route path="/dashboard/" exact component={App}></Route>
-				 <Route path="/dashboard/erying"  component={ErYing}></Route>
-				 <Route path="/dashboard/qibinglian"  component={QiBingLian}></Route>
+				 <Route path={`${match.url}/`} exact component={App}></Route>
+				 <Route path={`${match.url}/erying`}  component={ErYing}></Route>
+				 <Route path={`${match.url}/qibinglian`}   component={QiBingLian}></Route>
 				 
 			</div>
 		)

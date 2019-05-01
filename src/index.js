@@ -1,57 +1,51 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import Auth from './Auth';
-import Dashboard from './Dashboard';
+import Login from './container/login/login';
+import Register from './container/register/register';
+import AuthRoute from './component/authroute/authroute';
+ 
 import * as serviceWorker from './serviceWorker';
-
+import  './config'
+import reducers from './reducer'
 import {createStore,applyMiddleware,compose,combineReducers} from 'redux'
 import thunk from 'redux-thunk'
 import {Provider} from 'react-redux'
 // import {counter,addGUN,removeGUN,addGUNAsync} from "./index.redux"
-import {counter} from "./index.redux"
-import {auth} from "./Auth.redux"
+
 import {BrowserRouter,Route,Link,Redirect,Switch} from 'react-router-dom'
 
-const store=createStore(combineReducers({counter,auth}),compose(
+const store=createStore(reducers,compose(
 	applyMiddleware(thunk),
 	window.devToolsExtension?window.devToolsExtension():f=>f
 ))
-console.log(store.getState())
+
+function Boss(){
+	return <h1>BOSS页面</h1>
+}
  
-//使用react-redux钱的写法
+ 
+//使用react-redux前的写法
 // function render(){
 // 	ReactDOM.render(<App store={store} addGUN={addGUN} removeGUN={removeGUN} addGUNAsync={addGUNAsync}/>, document.getElementById('root'));
 // }
 // render()
 // store.subscribe(render)
-class Test extends React.Component{
-	constructor(props){
-		super(props)
-	}
-  render(){
-  
-  	 
-    return(
-    	<div>
-           <h2>测试组件 {this.props.match.params.location}</h2>
-    	</div>
-    )
-  }
-}
+ 
 
  
 	ReactDOM.render(
 		(<Provider  store={store}>
 			<BrowserRouter>
 			  <div>
-			        <Switch>
-					   <Route path='/login' exact component={Auth}></Route>
-					   <Route path='/dashboard' component={Dashboard}></Route>
-					    <Redirect to="/dashboard"></Redirect>
+			        
+			           <AuthRoute></AuthRoute>
+					   <Route path='/boss' exact component={Boss}></Route>
+					   <Route path='/login'  component={Login}></Route>
+					   <Route path='/register' component={Register}></Route>
+					     
 						 
-					 </Switch>
+					 
 			     	 
 
 					 

@@ -1,9 +1,9 @@
 # 操作
-`npm  run  start` 运行前端页面
+`npm  run  start` 运行前端页面`http://localhost:3000`
 
-`nodemon server.js`运行后端服务
+`nodemon server.js`运行后端服务`http://localhost:9000/`
 
-`mongod --dbpath "D:\mongodb\Server\data" --storageEngine=mmapv1  --journal`运行mongodb数据库
+`mongod --dbpath "D:\mongodb\Server\data" --storageEngine=mmapv1  --journal`运行mongodb数据库`http://localhost:27017/`
 
 # React介绍
 
@@ -212,6 +212,45 @@ this.props.history.push('/')//js进行跳转
 Hotfix KB2731284 or later update is not installed(现在已经失效windows不再支持)
 [Hotfix KB2731284 or later update is not installed, will zero-out data files](http://www.kriblog.com/bigdata/NoSQL/MongoDb/hotfix-kb2731284-or-later-update-is-not-installed-will-zero-out-data-files.html)
 [Steps to download and install Hotfix KB2731284 for mongoDB](http://www.kriblog.com/bigdata/NoSQL/MongoDb/steps-to-download-and-install-hotfix-kb2731284-for-mongodb.html)
+
+- mongodb的增删改查
+```
+//创建表
+const User=mongoose.model('User',new mongoose.Schema({
+  name:{type:String,require:true},  
+  age:{type:Number,require:true}
+}))
+
+// mongode的增删改查
+User.create({
+  name:'tom',
+  age:17
+},function(err,doc){
+  if(!err){
+    console.log(doc)
+  }else{
+    console.log(err)
+  }
+})
+
+// mongode的增删改查
+User.remove({age:17},function(err,doc){
+  console.log(doc)
+})
+
+// mongode的增删改查
+User.update({name:'tom'},{$set:{age:26}},function(err,doc){
+  console.log(doc)
+})
+
+// mongode的增删改查
+User.find({},function(err,doc){
+  return res.json(doc)
+})
+User.findOne({name:'tom'},function(err,doc){
+  return res.json(doc)
+})
+```
 
 
 
